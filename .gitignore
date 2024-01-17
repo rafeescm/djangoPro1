@@ -1,0 +1,29 @@
+*.pyc
+__pycache__
+db.sqlite3
+/env
+*.env
+.vscode
+djEnv/
+
+# Django-specific files
+*.log
+*.pot
+__pycache__/
+local_settings.py
+
+
+# Virtual Environment
+.env
+venv/
+env/
+
+# PyCharm-specific files
+.idea/
+
+# Other files
+.DS_Store
+Thumbs.db
+.coverage
+.tox/
+.eggs/

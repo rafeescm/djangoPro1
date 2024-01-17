@@ -1,0 +1,11 @@
+{% for movie in movies %}
+<h1>Helloo from html</h1>
+<h2>Title: {{ movie.title | upper}}</h2>
+<h2>Year: {{ movie.year }}</h2>
+<h2>Description: {{ movie.summary | default:"Not Available" }}</h2>
+{% if movie.success %}
+<p>{{movie.title}} is success movie</p>
+{% else %}
+<p>{{movie.title}} is not a success movie</p>
+{%endif%}
+{% endfor %}
