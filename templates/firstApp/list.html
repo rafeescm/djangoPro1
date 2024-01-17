@@ -1,12 +1,14 @@
 {% extends 'common.html' %}
 {% load static %}
 {% block content %}
-<h1>List</h1>
+<h1>List of Movies</h1>
+<table style="border: 5px solid red;">
+    <tr style="border: 5px solid red;"><th ><h1>Title</h1></th><th><h1>Year</h1></th><th><h1>Summary</h1></th><th>Edit</th></tr>
 {% for movie in movies %}
+
 <!--<img height="200" width="200" src="{% static 'images/'%}{{movie.img}}">-->
-<h2>Title: {{ movie.title | upper}}</h2>
-<h2>Year: {{ movie.year }}</h2>
-<h2>Description: {{ movie.summary | default:"Not Available" }}</h2>
-<hr>
+    <tr style="border: 5px solid red;"><td>{{ movie.title | upper}}</td><td>{{ movie.year }}</td><td>{{ movie.summary | default:"Not Available" }}</td><td><button><a href="{% url 'firstApp:edit' movie.id %}">Edit</a></button><button><a href="{% url 'firstApp:delete' movie.id %}">Delete</a></button</td></tr>
+
 {% endfor %}
+</table>
 {% endblock %}
