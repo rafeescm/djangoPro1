@@ -1,19 +1,23 @@
 from django.shortcuts import render
 from .models import MovieInfo
 from django.http import HttpResponse
+from .forms import MovieInfoForm
 
 
 # Create your views here.
 def create(request):
+    form = MovieInfoForm()
     if request.method == "POST":
-        title = request.POST.get("title")
-        year = request.POST.get("year")
-        summary = request.POST.get("summary")
-        movie_obj = MovieInfo(title=title, year=year, summary=summary)
-        movie_obj.save()
+        form = MovieInfoForm(request.POST)
+        # title = request.POST.get("title")
+        # year = request.POST.get("year")
+        # summary = request.POST.get("summary")
+        # movie_obj = MovieInfo(title=title, year=year, summary=summary)
+        if form.is_valid():
+            form.save()
         print(request.POST)
         print(request.POST.get("summary"))
-    return render(request, "firstApp/create.html")
+    return render(request, "firstApp/create.html",{"form":form})
 
 
 def list(request):
