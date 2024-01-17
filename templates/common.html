@@ -1,4 +1,7 @@
-<h1>BASE html page</h1>
+{% load static %}
+<h1>BASE html page
+<img  width="500" height="600" src="{% static 'images/bigb.jpg' %}" />
+    </h1>
 {% include 'firstApp/menu.html' %}
 {% block content %}
 {% endblock  %}
