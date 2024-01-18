@@ -13,6 +13,8 @@ class Actor(models.Model):
 class CensorInfo(models.Model):
     rating = models.CharField(max_length=10)
     certified_by = models.CharField(max_length=200,null=True)
+    def __str__(self):
+        return self.certified_by
 
 class MovieInfo(models.Model):
     title = models.CharField(max_length=100)
