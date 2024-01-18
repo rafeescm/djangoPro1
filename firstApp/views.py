@@ -6,9 +6,9 @@ from .forms import MovieInfoForm
 
 # Create your views here.
 def create(request):
-    form = MovieInfoForm()
+
     if request.method == "POST":
-        form = MovieInfoForm(request.POST)
+        form = MovieInfoForm(request.POST,request.FILES)
         # title = request.POST.get("title")
         # year = request.POST.get("year")
         # summary = request.POST.get("summary")
@@ -17,6 +17,8 @@ def create(request):
             form.save()
         print(request.POST)
         print(request.POST.get("summary"))
+    else:
+        form = MovieInfoForm()
     return render(request, "firstApp/create.html",{"form":form})
 
 

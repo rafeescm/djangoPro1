@@ -7,7 +7,7 @@
 {% for movie in movies %}
 
 <!--<img height="200" width="200" src="{% static 'images/'%}{{movie.img}}">-->
-    <tr style="border: 5px solid red;"><td>{{ movie.title | upper}}</td><td>{{ movie.year }}</td><td>{{ movie.summary | default:"Not Available" }}</td><td><button><a href="{% url 'firstApp:edit' movie.id %}">Edit</a></button><button><a href="{% url 'firstApp:delete' movie.id %}">Delete</a></button</td></tr>
+    <tr style="border: 5px solid red;"><td>{{ movie.title | upper}}{% if movie.image %}<img src="{{movie.image.url }}" alt="movie_image">{% endif %}</td><td>{{ movie.year }}</td><td>{{ movie.summary | default:"Not Available" }}</td><td><button><a href="{% url 'firstApp:edit' movie.id %}">Edit</a></button><button><a href="{% url 'firstApp:delete' movie.id %}">Delete</a></button</td></tr>
 
 {% endfor %}
 </table>
