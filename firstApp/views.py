@@ -23,7 +23,11 @@ def create(request):
 
 
 def list(request):
-    movie_details = MovieInfo.objects.all()
+    # movie_details = MovieInfo.objects.all()
+    # movie_details = MovieInfo.objects.filter(year=2024).filter(title="12th fail2")
+    # movie_details = MovieInfo.objects.exclude(year=2023).order_by('-year')
+    # movie_details = MovieInfo.objects.filter(acted_by__actor="mammootty")
+    movie_details = MovieInfo.objects.filter(year__lt=2023)
     print(movie_details)
     return render(request, "firstApp/list.html", {"movies":movie_details})
 
